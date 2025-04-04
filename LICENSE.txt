@@ -1,6 +1,6 @@
 Copyright (c) 2022 - 2025 Jasper Assembly Pty Ltd. 
 All rights reserved.
-Florence FSD - Request, Wait & Write-Enable For Stack Event Library.
+Florence FSD - Request, Wait & Write-Enable For Threads At Stacks Library.
 
 Redistribution and use in source and binary forms, with or without
 modification, are not permitted. All provisions require expressed 
