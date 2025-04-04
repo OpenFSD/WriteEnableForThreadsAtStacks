@@ -4,7 +4,7 @@ Request, Wait, Write for Thread access to Stack Control.
 ## Similar Repository
  - https://github.com/cameron314/readerwriterqueue
 
-# Request, Wait, Write for Stack Control, Dynamic Link Library.
+# Request, Wait, Write for Threads at Stack Control, Dynamic Link Library.
 
 ### Using C++
 
