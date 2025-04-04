@@ -1,4 +1,4 @@
-# Wait-WriteEnableForStackEvent_lib.
+# WriteEnableForThreadsAtStacks_lib.
 Request, Wait, Write for Thread access to Stack Control.
 
 ## Similar Repository
