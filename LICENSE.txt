@@ -1,4 +1,4 @@
-Copyright (c) 2022 - 2025 Jasper Assembly Pty Ltd. 
+Copyright (c) 2022 - 2025 Brenton James Maddocks BEng(CompSys). 
 All rights reserved.
 Florence FSD - Request, Wait & Write-Enable For Threads At Stacks Library.
 
