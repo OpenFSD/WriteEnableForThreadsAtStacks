@@ -1,28 +1,27 @@
 #pragma once
-#include "WriteEnable_Stack_Server_InputAction_Global.h"
 
-namespace WaitEnableWrite
+namespace Avril_FSD
 {
-    class WriteEnable_Control_Stack_Server_InputAction
+    class WriteEnable_STACK_Control
     {
     public:
-        WriteEnable_Control_Stack_Server_InputAction(
-            class WaitEnableWrite::Global_WriteEnable_Stack_Server_InputAction* ptr_Global
+        WriteEnable_STACK_Control(
+            class Avril_FSD::WriteEnable_STACK_Global* global
         );
-        ~WriteEnable_Control_Stack_Server_InputAction();
+        ~WriteEnable_STACK_Control();
         void WriteEnable_Activate(
             unsigned char coreId,
-            class WaitEnableWrite::Global_WriteEnable_Stack_Server_InputAction* ptr_Global
+            class Avril_FSD::WriteEnable_STACK_Global* global
         );
         void WriteEnable_SortQue(
-            class WaitEnableWrite::Global_WriteEnable_Stack_Server_InputAction* ptr_Global
+            class Avril_FSD::WriteEnable_STACK_Global* global
         );
         void WriteEnable_Request(
             unsigned char coreId,
-            class WaitEnableWrite::Global_WriteEnable_Stack_Server_InputAction* ptr_Global
+            class Avril_FSD::WriteEnable_STACK_Global* global
         );
         void WriteQue_Update(
-            class WaitEnableWrite::Global_WriteEnable_Stack_Server_InputAction* ptr_Global
+            class Avril_FSD::WriteEnable_STACK_Global* global
         );
 
         unsigned char Get_coreIdForWritePraiseIndex();
@@ -56,14 +55,5 @@ namespace WaitEnableWrite
         bool GetFlag_writeState(unsigned char coreId, unsigned char index);
 
         void Set_coreIdForWritePraiseIndex(unsigned char value);
-
-        static unsigned char coreId_For_WritePraise_Index;
-        static int ptr_count_CoreId_WriteActive[4];//NUMBER OF CORES
-        static int ptr_count_CoreId_WriteIdle[4];//NUMBER OF CORES
-        static int ptr_count_CoreId_WriteWait[4];//NUMBER OF CORES
-        static bool flag_WriteState[4][2];//NUMBER OF CORES
-        static unsigned char ptr_new_coreId_For_WritePraise_Index;
-        static bool praisingWrite;
-        static unsigned char ptr_que_CoreToWrite[4];//NUMBER OF CORES
     };
 }

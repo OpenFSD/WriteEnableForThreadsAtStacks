@@ -15,42 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB_WriteEnableForThreadsAt_STACK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WriteEnable_Stack_Server_OutputRecieve.h">
+    <ClInclude Include="WriteEnable_STACK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WriteEnable_Stack_Server_OutputRecieve_Control.h">
+    <ClInclude Include="WriteEnable_STACK_Control.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WriteEnable_Stack_Server_OutputRecieve_Framework.h">
+    <ClInclude Include="WriteEnable_STACK_Framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WriteEnable_Stack_Server_OutputRecieve_Global.h">
+    <ClInclude Include="WriteEnable_STACK_Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LIB_WriteEnableForThreadsAt_STACK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WriteEnable_Stack_Server_OutputRecieve.cpp">
+    <ClCompile Include="WriteEnable_STACK.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WriteEnable_Stack_Server_OutputRecieve_Control.cpp">
+    <ClCompile Include="WriteEnable_STACK_Control.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WriteEnable_Stack_Server_OutputRecieve_Framework.cpp">
+    <ClCompile Include="WriteEnable_STACK_Framework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WriteEnable_Stack_Server_OutputRecieve_Global.cpp">
+    <ClCompile Include="WriteEnable_STACK_Global.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
