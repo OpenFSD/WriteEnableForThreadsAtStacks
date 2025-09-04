@@ -23,41 +23,24 @@ void Avril_FSD::WriteEnable_STACK::Initialise_Control()
     while (Get_writeEnable_Control() == NULL) {}
 }
 
-void Avril_FSD::WriteEnable_STACK::Write_End(unsigned char coreId)
+void Avril_FSD::WriteEnable_STACK::Write_End(class WriteEnable_STACK_Framework* obj, unsigned char coreId)
 {
-    for (unsigned char index = 0; index < 2; index++)
+    obj->Get_writeEnable()->Get_writeEnable_Control()->Set_flag_WriteState(coreId, obj->Get_writeEnable()->Get_global()->Get_flag_write_IDLE());
+    obj->Get_writeEnable()->Get_writeEnable_Control()->Set_new_writeCycle_Try_CoreId_Index(obj->Get_writeEnable()->Get_writeEnable_Control()->Get_count_CoreId_WriteActive(coreId) + 1);
+    if(obj->Get_writeEnable()->Get_writeEnable_Control()->Get_new_writeCycle_Try_CoreId_Index() == 3)
     {
-        Get_writeEnable_Control()->SetFlag_writeState(coreId, index, ptr_global->GetConst_Write_IDLE(index));
+        obj->Get_writeEnable()->Get_writeEnable_Control()->Set_new_writeCycle_Try_CoreId_Index(0);
     }
-    Get_writeEnable_Control()->Set_new_coreIdForWritePraiseIndex(Get_writeEnable_Control()->Get_coreIdForWritePraiseIndex() + 1);
-    if (int(Get_writeEnable_Control()->Get_new_coreIdForWritePraiseIndex()) == 3)
-    {
-        Get_writeEnable_Control()->Set_new_coreIdForWritePraiseIndex(0);
-    }
-    Get_writeEnable_Control()->WriteQue_Update(
-        ptr_global
-    );
-    Get_writeEnable_Control()->WriteEnable_SortQue(
-        ptr_global
-    );
-    Get_writeEnable_Control()->SetFlag_readWrite_Open(false);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteQue_Update(obj);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteEnable_SortQue(obj);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->Set_flag_praisingWrite(false);
 }
-void Avril_FSD::WriteEnable_STACK::Write_Start(unsigned char coreId)
+void Avril_FSD::WriteEnable_STACK::Write_Start(class WriteEnable_STACK_Framework* obj, unsigned char coreId)
 {
-    Get_writeEnable_Control()->WriteEnable_Request(
-        coreId,
-        ptr_global
-    );
-    Get_writeEnable_Control()->WriteQue_Update(
-        ptr_global
-    );
-    Get_writeEnable_Control()->WriteEnable_SortQue(
-        ptr_global
-    );
-    Get_writeEnable_Control()->WriteEnable_Activate(
-        coreId,
-        ptr_global
-    );
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteEnable_Request(obj, coreId);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteQue_Update(obj);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteEnable_SortQue(obj);
+    obj->Get_writeEnable()->Get_writeEnable_Control()->WriteEnable_Activate(obj, coreId);
 }
 Avril_FSD::WriteEnable_STACK_Global* Avril_FSD::WriteEnable_STACK::Get_global()
 {
@@ -67,9 +50,9 @@ Avril_FSD::WriteEnable_STACK_Control* Avril_FSD::WriteEnable_STACK::Get_writeEna
 {
     return ptr_WriteEnable_Control;
 }
-void Avril_FSD::WriteEnable_STACK::Set_global(Avril_FSD::WriteEnable_STACK_Global* ptr_global)
+void Avril_FSD::WriteEnable_STACK::Set_global(Avril_FSD::WriteEnable_STACK_Global* global)
 {
-    ptr_global = ptr_global;
+    ptr_global = global;
 }
 void Avril_FSD::WriteEnable_STACK::Set_writeEnable_Control(Avril_FSD::WriteEnable_STACK_Control* writeEnableControl)
 {

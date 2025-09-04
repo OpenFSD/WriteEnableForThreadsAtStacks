@@ -9,13 +9,13 @@ namespace Avril_FSD
         virtual ~WriteEnable_STACK();
         void Initialise_Control();
 
-        void Write_End(unsigned char coreId);
-        void Write_Start(unsigned char coreId);
+        void Write_End(class WriteEnable_STACK_Framework* obj, unsigned char coreId);
+        void Write_Start(class WriteEnable_STACK_Framework* obj, unsigned char coreId);
 
-    private:
         static class WriteEnable_STACK_Global* Get_global();
         static class WriteEnable_STACK_Control* Get_writeEnable_Control();
 
+    private:
         static void Set_global(class WriteEnable_STACK_Global* global);
         static void Set_writeEnable_Control(class WriteEnable_STACK_Control* writeEnableControl);
     };
